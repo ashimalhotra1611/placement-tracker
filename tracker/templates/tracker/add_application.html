@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Application</title>
+</head>
+<body>
+    <h1>Add Application</h1>
+    <p><a href="{% url 'add_application' %}">+ Add Application</a></p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <p><a href="{% url 'application_list' %}">Back to list</a></p>
+</body>
+</html>

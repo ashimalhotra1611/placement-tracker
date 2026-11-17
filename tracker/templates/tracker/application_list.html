@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placement Tracker</title>
+</head>
+<body>
+     <h1>My Applications</h1>
+<p><a href="{% url 'add_application' %}">+ Add Application</a></p>
+<table border="1" cellpadding="8">
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for app in applications %}
+        <tr>
+            <td>{{ app.company }}</td>
+            <td>{{ app.role }}</td>
+            <td>{{ app.get_status_display }}</td>
+            <td>{{ app.applied_date }}</td>
+            <td>
+    <a href="{% url 'edit_application' app.pk %}">Edit</a> |
+    <a href="{% url 'delete_application' app.pk %}">Delete</a>
+</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

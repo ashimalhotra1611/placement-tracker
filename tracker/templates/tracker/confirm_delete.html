@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Application</title>
+</head>
+<body>
+    <h1>Delete Application?</h1>
+    <p>Kya tum sach mein "{{ application.company }} - {{ application.role }}" delete karna chahti ho?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'application_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
