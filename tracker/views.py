@@ -53,3 +53,16 @@ def delete_application(request, pk):
         application.delete()
         return redirect('application_list')
     return render(request, 'tracker/confirm_delete.html', {'application': application})
+
+@login_required
+def dashboard(request):
+    applications = Application.objects.filter(user=request.user)
+    context = {
+        'total': applications.count(),
+        'applied': applications.filter(status='applied').count(),
+        'interview': applications.filter(status='interview').count(),
+        'offer': applications.filter(status='offer').count(),
+        'rejected': applications.filter(status='rejected').count(),
+        'recent': applications.order_by('-applied_date')[:5],
+    }
+    return render(request, 'tracker/dashboard.html', context)
