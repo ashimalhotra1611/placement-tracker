@@ -5,9 +5,15 @@
 </head>
 <body>
      <h1>My Applications</h1>
+     <p>
+    Hello, {{ user.username }}
+    <form method="post" action="{% url 'logout' %}" style="display:inline">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</p>
 <p><a href="{% url 'add_application' %}">+ Add Application</a></p>
 <table border="1" cellpadding="8">
-    <table border="1" cellpadding="8">
         <tr>
             <th>Company</th>
             <th>Role</th>

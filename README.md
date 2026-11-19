@@ -10,7 +10,7 @@ A Django web app to track internship and job applications in one place.
 
 ## Tech Stack
 - Python
-- Django
+- Django    
 - SQLite
 - HTML
 
