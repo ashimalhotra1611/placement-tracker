@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 from .models import Application
 from .forms import ApplicationForm
 
@@ -18,8 +19,23 @@ def signup(request):
 
 @login_required
 def application_list(request):
-    applications = Application.objects.filter(user=request.user).order_by('-applied_date')
-    return render(request, 'tracker/application_list.html', {'applications': applications})
+    applications = Application.objects.filter(user=request.user)
+
+    q = request.GET.get('q', '').strip()
+    status = request.GET.get('status', '')
+
+    if q:
+        applications = applications.filter(Q(company__icontains=q) | Q(role__icontains=q))
+    if status:
+        applications = applications.filter(status=status)
+
+    applications = applications.order_by('-applied_date')
+    return render(request, 'tracker/application_list.html', {
+        'applications': applications,
+        'q': q,
+        'status': status,
+        'status_choices': Application.STATUS_CHOICES,
+    })
 
 @login_required
 def add_application(request):
