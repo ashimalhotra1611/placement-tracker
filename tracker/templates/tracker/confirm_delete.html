@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Application</title>
-</head>
-<body>
-    <h1>Delete Application?</h1>
-    <p>Kya tum sach mein "{{ application.company }} - {{ application.role }}" delete karna chahti ho?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-        <a href="{% url 'application_list' %}">Cancel</a>
-    </form>
-</body>
-</html>
+{% extends 'tracker/base.html' %}
+{% block title %}Delete Application{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-body">
+                <h1 class="h4 text-danger">Delete Application?</h1>
+                <p>Kya tum sach mein "{{ application.company }} - {{ application.role }}" delete karna chahti ho?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes, delete</button>
+                    <a href="{% url 'application_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

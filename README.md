@@ -1,4 +1,4 @@
- # Placement Tracker
+# Placement Tracker
 
 A Django web app to track internship and job applications in one place.
 
@@ -7,13 +7,13 @@ A Django web app to track internship and job applications in one place.
 - View all applications in a table
 - Edit and delete applications
 - Status tracking: Applied, Interview, Offer, Rejected
--  User login and signup (each user sees only their own           applications)
-- Dashboard with status-wise charts
-- Resume upload with job description match score
+- User signup, login and logout (each user sees only their own applications)
+- Dashboard with status counts and a status chart
+- Search and filter applications
 
 ## Tech Stack
 - Python
-- Django    
+- Django
 - SQLite
 - HTML
 
@@ -27,7 +27,10 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
-Then open http://127.0.0.1:8000 in your browser.
+Then open http://127.0.0.1:8000 in your browser and sign up for a new account.
+
+## Planned Features
+- Resume upload with job description match score
 
 ## Author
-Ashi Malhotra, MCA (Integrated) student    
+Ashi Malhotra, MCA (Integrated) student
