@@ -10,6 +10,7 @@ A Django web app to track internship and job applications in one place.
 - User signup, login and logout (each user sees only their own applications)
 - Dashboard with status counts and a status chart
 - Search and filter applications
+- Bootstrap-styled responsive UI
 
 ## Tech Stack
 - Python
