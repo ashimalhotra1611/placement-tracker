@@ -23,10 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m!+7#7gmg=hcpdtui#$9t(!wzn835x@((8f$k++y2px=&zl^uu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+DEBUG = False
+ALLOWED_HOSTS = ['ashimalhotra1611.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -137,3 +135,4 @@ MAILERS = {
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'application_list'
 LOGOUT_REDIRECT_URL = 'login'
+STATIC_ROOT = BASE_DIR / 'static'
