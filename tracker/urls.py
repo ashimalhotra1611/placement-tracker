@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/edit/', views.edit_application, name='edit_application'),
     path('<int:pk>/delete/', views.delete_application, name='delete_application'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    ]
+    path('matcher/', views.resume_matcher, name='resume_matcher'),
+]

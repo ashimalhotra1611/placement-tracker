@@ -2,6 +2,9 @@
 
 A Django web app to track internship and job applications in one place.
 
+## Live demo:
+ https://ashimalhotra1611.pythonanywhere.com
+
 ## Features
 - Add a new application (company, role, status, date, notes)
 - View all applications in a table
@@ -11,6 +14,7 @@ A Django web app to track internship and job applications in one place.
 - Dashboard with status counts and a status chart
 - Search and filter applications
 - Bootstrap-styled responsive UI
+
 
 ## Tech Stack
 - Python
