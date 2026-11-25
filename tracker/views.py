@@ -6,7 +6,7 @@ from django.db.models import Q
 from .models import Application
 from .forms import ApplicationForm, ResumeMatchForm
 from .matcher import extract_text, match_resume
-
+from django.utils import timezone
 
 def signup(request):
     if request.method == 'POST':
@@ -76,10 +76,10 @@ def delete_application(request, pk):
         return redirect('application_list')
     return render(request, 'tracker/confirm_delete.html', {'application': application})
 
-
 @login_required
 def dashboard(request):
     applications = Application.objects.filter(user=request.user)
+    today = timezone.localdate()
     context = {
         'total': applications.count(),
         'applied': applications.filter(status='applied').count(),
@@ -87,9 +87,9 @@ def dashboard(request):
         'offer': applications.filter(status='offer').count(),
         'rejected': applications.filter(status='rejected').count(),
         'recent': applications.order_by('-applied_date')[:5],
+        'upcoming': applications.filter(interview_date__gte=today).order_by('interview_date')[:5],
     }
     return render(request, 'tracker/dashboard.html', context)
-
 
 @login_required
 def resume_matcher(request):

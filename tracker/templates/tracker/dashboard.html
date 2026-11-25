@@ -3,6 +3,21 @@
 
 {% block content %}
 <h1 class="h3 mb-3">Dashboard</h1>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h2 class="h6">Upcoming interviews</h2>
+        <ul class="list-group list-group-flush">
+            {% for app in upcoming %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ app.company }} - {{ app.role }}</span>
+                <span class="badge bg-warning text-dark">{{ app.interview_date }}</span>
+            </li>
+            {% empty %}
+            <li class="list-group-item text-muted">Abhi koi interview date nahi hai.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
 <div class="row g-3 mb-4">
     <div class="col-6 col-md">
@@ -66,4 +81,4 @@
         }
     });
 </script>
-{% endblock %}
+{% endblock %}  

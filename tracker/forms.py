@@ -4,11 +4,11 @@ from .models import Application
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
-        fields = ['company', 'role', 'status', 'applied_date', 'notes']
+        fields = ['company', 'role', 'status', 'applied_date', 'interview_date', 'notes']
         widgets = {
             'applied_date': forms.DateInput(attrs={'type': 'date'}),
+            'interview_date': forms.DateInput(attrs={'type': 'date'}),
         }
-        
 
 class ResumeMatchForm(forms.Form):
     resume = forms.FileField(label='Resume (PDF)')
